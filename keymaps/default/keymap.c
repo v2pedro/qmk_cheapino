@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-#include "features/orbital_mouse.h"`
+//#include "features/orbital_mouse.h"`
 
 
 /* THIS FILE WAS GENERATED!
@@ -53,10 +53,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[3] = LAYOUT_split_3x5_3(
 					KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-						KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-					KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,
 						KC_NO, KC_NO, OM_U, KC_NO, KC_NO,
-					KC_NO, OM_L, OM_D, OM_R, OM_W_U, 
+					KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,
+						KC_NO, OM_L, OM_D, OM_R, OM_W_U,
+					KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 						KC_NO, KC_NO, KC_NO, KC_NO, OM_W_D,
 					KC_NO, KC_NO, KC_NO,
 						OM_SLOW, OM_BTN1, OM_BTN2),
@@ -99,20 +99,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
-
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-	if (!process_orbital_mouse(keycode, record)) { return false; }
-  
-	// Your macros ...
-	return true;
-}
-  
-void housekeeping_task_user(void) {
-	orbital_mouse_task();
-  
-	// Other tasks ...
-}
-
 
 
 
