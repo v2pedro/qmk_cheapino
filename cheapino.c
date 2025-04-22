@@ -36,7 +36,7 @@ void keyboard_post_init_user(void) {
     // Store user selected rgb hsv:
     _hue = rgblight_get_hue();
     _saturation = rgblight_get_sat();
-    _value = rgblight_get_val();
+    _value = 0; //rgblight_get_val();
 
     // Flash a little on start
     defer_exec(50, flash_led, NULL);
