@@ -15,6 +15,7 @@ uint8_t _value;
 // Use the deferred executor so the LED flash dance does not
 // stop us from using the keyboard.
 // https://docs.qmk.fm/#/custom_quantum_functions?id=deferred-executor-registration
+
 uint32_t flash_led(uint32_t next_trigger_time, void *cb_arg) {
     rgblight_sethsv(_hue_countdown * 5, 230, 70);
     _hue_countdown--;
@@ -36,30 +37,49 @@ void keyboard_post_init_user(void) {
     // Store user selected rgb hsv:
     _hue = rgblight_get_hue();
     _saturation = rgblight_get_sat();
-    _value = 0; //rgblight_get_val();
+    //_value = 0; //rgblight_get_val();
+    _value = rgblight_get_val();
 
     // Flash a little on start
-    defer_exec(50, flash_led, NULL);
+    //defer_exec(50, flash_led, NULL);
 }
 
 // Make the builtin RGB led show different colors per layer:
 // This seemed like a good idea but turned out pretty annoying,
-// to me at least... Uncomment the lines below to enable
-/*
+// to me at least... Uncomment the lines below to enables
 uint8_t get_hue(uint8_t layer) {
     switch (layer) {
         case 6:
-            return 169;
+            return 0;
         case 5:
-            return 43;
+            return 0;
         case 4:
-            return 85;
+            return 0;
         case 3:
-            return 120;
+            return 0;
         case 2:
-            return 180;
+            return 255;
         case 1:
-            return 220;
+            return 128;
+        default:
+            return 0;
+    }
+}
+
+uint8_t get_val(uint8_t layer) {
+    switch (layer) {
+        case 6:
+            return 0;
+        case 5:
+            return 0;
+        case 4:
+            return 0;
+        case 3:
+            return 0;
+        case 2:
+            return 160;
+        case 1:
+            return 160;
         default:
             return 0;
     }
@@ -67,9 +87,9 @@ uint8_t get_hue(uint8_t layer) {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     uint8_t sat = rgblight_get_sat();
-    uint8_t val = rgblight_get_val();
+    //uint8_t val = rgblight_get_val();
+    uint8_t val = get_val(get_highest_layer(state));
     uint8_t hue = get_hue(get_highest_layer(state));
     rgblight_sethsv(hue, sat, val);
     return state;
 }
-*/

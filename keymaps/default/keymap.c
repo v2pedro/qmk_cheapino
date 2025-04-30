@@ -18,8 +18,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 						KC_H, RSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), LGUI_T(KC_SCLN),
 					KC_Z, KC_X, KC_C, KC_V, KC_B,
 						KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,
-					LT(3,KC_TAB), LT(1,KC_SPC), KC_NO,
-						KC_NO, LT(2,KC_BSPC), LT(4,KC_ENT)
+					LT(3,KC_TAB), LT(1,KC_SPC), TG(1),
+						TG(2), LT(2,KC_BSPC), LT(4,KC_ENT)
 					),
 	
 
@@ -33,8 +33,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 						KC_PMNS, RSFT_T(KC_P4), LCTL_T(KC_P5), LALT_T(KC_P6), LGUI_T(KC_PSLS),
 					KC_ESC, LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), KC_BSPC,
 						KC_PDOT, KC_P1,	KC_P2, KC_P3, KC_BSLS,
-					KC_NO, KC_NO, KC_NO,
-						KC_NO, KC_NO, KC_P0), 
+					KC_NO, KC_NO, KC_TRNS,
+						KC_TRNS, KC_NO, KC_P0), 
 	// 2
 	// nav / function keys
 	// right side, left key / backspace
@@ -45,8 +45,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 						KC_MINS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGUP,
 					KC_ESC, KC_NO, KC_NO, KC_F11, KC_F12,
 						KC_QUOT, KC_DEL, KC_LBRC, KC_LBRC, KC_PGDN, 
-					KC_NO, KC_NO, KC_NO,
-						KC_NO, KC_NO, KC_NO),
+					KC_NO, KC_NO, KC_TRNS,
+						KC_TRNS, KC_NO, KC_NO),
 	// 3
 	// mouse
 	// left side, left key / tab
