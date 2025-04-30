@@ -41,7 +41,7 @@ void keyboard_post_init_user(void) {
     _value = rgblight_get_val();
 
     // Flash a little on start
-    //defer_exec(50, flash_led, NULL);
+    defer_exec(50, flash_led, NULL);
 }
 
 // Make the builtin RGB led show different colors per layer:
